@@ -1,6 +1,6 @@
 package exA;
 
-public abstract class Decorator implements Component {
+abstract class Decorator implements Component {
     Component cmp;
     int x;
     int y;

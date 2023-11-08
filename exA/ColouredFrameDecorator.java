@@ -1,21 +1,26 @@
 package exA;
 
-import java.awt.Graphics;
-import java.awt.Color;
+import java.awt.*;
 
 public class ColouredFrameDecorator extends Decorator {
 
     private int thickness;
 
-    ColouredFrameDecorator(Component component, int x, int y, int width, int height, int thickness) {
+    ColouredFrameDecorator(Component component, int x, int y, int width, int height, int thick) {
         super(component, x, y, width, height);
-        this.thickness = thickness;
+        thickness = thick;
     }
 
     @Override
     public void draw(Graphics g) {
-        g.getColor();
-        g.setColor(Color.RED);
-        g.drawRect(x, y, thickness, height);
+        cmp.draw(g);
+        Graphics2D g2d = (Graphics2D) g;
+        Stroke oldStroke = g2d.getStroke();
+        Color oldColor = g2d.getColor();
+        g2d.setStroke(new BasicStroke(thickness));
+        g2d.setColor(Color.red);
+        g2d.drawRect(x, y, width, height);
+        g2d.setStroke(oldStroke);
+        g2d.setColor(oldColor);
     }
 }

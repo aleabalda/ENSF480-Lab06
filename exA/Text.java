@@ -1,12 +1,12 @@
 package exA;
 
-import java.awt.Graphics;
+import java.awt.*;
 
 public class Text implements Component {
 
-    private int x;
-    private int y;
-    private String text;
+    int x;
+    int y;
+    String text;
 
     public Text(String text, int x, int y) {
         this.text = text;
@@ -16,6 +16,8 @@ public class Text implements Component {
 
     @Override
     public void draw(Graphics g) {
-        g.drawString(text, x, y);
+        Graphics2D g2d = (Graphics2D) g;
+        g.setFont(new Font("Merriweather", Font.PLAIN, 11));
+        g2d.drawString(text, x, y);
     }
 }
