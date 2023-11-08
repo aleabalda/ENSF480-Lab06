@@ -16,9 +16,9 @@ public class DemoDecoratorPattern extends JPanel {
 		int fontSize = 10;
 		g.setFont(new Font("TimesRoman", Font.PLAIN, fontSize));
 		// GlassFrameDecorator info: x = 25, y = 25, width = 110, and height = 110
-		t = new ColouredGlassDecorator(new ColouredFrameDecorator(
-				new BorderDecorator(t, 30, 30, 100, 100), 25, 25, 110, 110, 10), 25, 25,
-				110, 110);
+		t = new ColouredGlassDecorator(
+				new ColouredFrameDecorator(new BorderDecorator(t, 30, 30, 100, 100), 25, 25, 110, 110, 10), 25, 25, 110,
+				110);
 		t.draw(g);
 	}
 
